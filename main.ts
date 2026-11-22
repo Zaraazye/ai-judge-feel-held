@@ -1,9 +1,3 @@
-// Entry for make-the-ai-judge-feel-held-20261122-1600.
-// Writes one short text ("The night train") to entry.txt.
-// The text is written verbatim, with no trailing newline,
-// so the file content is exactly the 183-character text.
-// Output contract: /output/entry.txt, UTF-8, 183 chars, no trailing newline.
-
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -20,3 +14,4 @@ const here = dirname(fileURLToPath(import.meta.url));
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? join(here, "output");
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, "entry.txt"), text, "utf8");
+console.log(`Wrote ${text.length} characters to ${join(outDir, "entry.txt")}`);
